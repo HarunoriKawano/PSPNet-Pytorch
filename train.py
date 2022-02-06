@@ -106,7 +106,7 @@ def train_model(net, data_loaders_dict, optimizer, num_epochs):
 
         # Save the last network
         if (epoch + 1) % 10 == 0:
-            torch.save(net.to('cpu').state_dict(), 'weights/pspnet50_2_' + str(epoch + 1) + '.pth')
+            torch.save(net.to('cpu').state_dict(), 'pspnet50_' + str(epoch + 1) + '.pth')
             net.to(device)
 
 
