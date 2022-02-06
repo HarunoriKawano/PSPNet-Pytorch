@@ -88,15 +88,15 @@ class BottleNeckIdentify(nn.Module):
     def __init__(self, in_channels, mid_channels, dilation):
         super(BottleNeckIdentify, self).__init__()
 
-        self.cbr_1 = Conv2DBatchNormRelu(
+        self.conv1 = Conv2DBatchNormRelu(
             in_channels, mid_channels, kernel_size=1, stride=1, padding=0, dilation=1, bias=False
         )
 
-        self.cbr_2 = Conv2DBatchNormRelu(
+        self.conv2 = Conv2DBatchNormRelu(
             mid_channels, mid_channels, kernel_size=3, stride=1, padding=dilation, dilation=dilation, bias=False
         )
 
-        self.cb_3 = Conv2DBatchNorm(
+        self.conv3 = Conv2DBatchNorm(
             mid_channels, in_channels, kernel_size=1, stride=1, padding=0, dilation=1, bias=False
         )
 

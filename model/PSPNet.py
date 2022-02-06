@@ -1,4 +1,5 @@
 from torch import nn
+import torchinfo
 
 from feature_map import FeatureMapConvolution
 from resnet50 import ResNet50
@@ -33,3 +34,9 @@ class PSPNet(nn.Module):
         output = self.decoder(pyramid_features)
 
         return output
+
+
+if __name__ == '__main__':
+    net = PSPNet(21)
+    batch_size = 8
+    torchinfo.summary(net, input_size=(batch_size, 3, 475, 475))
